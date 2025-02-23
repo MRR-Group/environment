@@ -58,5 +58,5 @@ Detailed instructions on how to use this environment with your project are avail
 
 # Troubleshooting
 
-- Traefik requires ports `:80` and `:443` and the container will refuse to start if something is blocking any of these.
+- Traefik requires port `:80` and the container will refuse to start if something is blocking any of these.
     - to see what's listening on port 80, you can use this command: `ss -peanut | grep ":80" | grep LISTEN`
