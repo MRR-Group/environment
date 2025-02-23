@@ -1,7 +1,7 @@
 version: "3.8"
 
 networks:
-  traefik-proxy-blumilk-local:
+  traefik-proxy-mmr-local:
     external: true
 
 services:
@@ -10,15 +10,8 @@ services:
     container_name: traefik-whoami-container
     labels:
       - "traefik.enable=true"
-      - "traefik.blumilk.environment=true"
-      # HTTP
-      - "traefik.http.routers.whoami-http-router.rule=Host(`whoami.blumilk.localhost`)"
+      - "traefik.mmr.environment=true"
+      - "traefik.http.routers.whoami-http-router.rule=Host(`whoami.mmr.localhost`)"
       - "traefik.http.routers.whoami-http-router.entrypoints=web"
-      # MIDDLEWARES
-#      - "traefik.http.routers.whoami-http-router.middlewares=https-redirect@file"
-      # HTTPS
-      - "traefik.http.routers.whoami-https-router.rule=Host(`whoami.blumilk.localhost`)"
-      - "traefik.http.routers.whoami-https-router.entrypoints=websecure"
-      - "traefik.http.routers.whoami-https-router.tls=true"
     networks:
-      - traefik-proxy-blumilk-local
+      - traefik-proxy-mmr-local

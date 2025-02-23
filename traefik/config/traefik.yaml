@@ -9,22 +9,15 @@ entryPoints:
     web:
         address: ":80"
 
-    websecure:
-        address: ":443"
-        http3: {}
-
 api:
     insecure: false
     dashboard: true
 
 providers:
-    file:
-        directory: "/etc/traefik/config/dynamic"
-        watch: true
     docker:
-        network: "traefik-proxy-blumilk-local"
+        network: "traefik-proxy-mmr-local"
         exposedByDefault: false
-        constraints: "Label(`traefik.blumilk.environment`,`true`)"
+        constraints: "Label(`traefik.mmr.environment`,`true`)"
 
 experimental:
     http3: true
